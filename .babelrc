@@ -1,13 +1,22 @@
 {
+  // 轉碼規則
   "presets": [
-    ["es2015", { "modules": false }],
+    // ES2015轉碼規則 (babel-preset-es2015)
+    ["es2015", {
+      "modules": false
+    }],
+    // ES7不同階段語法提案的轉碼規則 (babel-preset-stage-2)
     "stage-2"
   ],
+  // 使用的插件
   "plugins": ["transform-runtime"],
+  // 轉碼時不輸出註解文字
   "comments": false,
+  // 不同環境可以設定不同配置
   "env": {
+    // BABEL_ENV 為 test 的時候使用 babel-plugin-istanbul 插件
     "test": {
-      "plugins": [ "istanbul" ]
+      "plugins": ["istanbul"]
     }
   }
 }
