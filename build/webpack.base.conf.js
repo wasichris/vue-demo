@@ -2,8 +2,9 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+var webpack = require('webpack')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -12,16 +13,16 @@ module.exports = {
   // [入口文件]
   // 可以透過此檔 import 所需相依模組，可允許多組使用。
   entry: {
-    app: './src/main.js'  
+    app: './src/main.js'
   },
   // [輸出設定]
   // 可以透過此檔 import 所需相依模組，可允許多組使用。
   output: {
-    path: config.build.assetsRoot,  // 'dist'
+    path: config.build.assetsRoot, // 'dist'
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath 
-      : config.dev.assetsPublicPath  
+    publicPath: process.env.NODE_ENV === 'production' ?
+      config.build.assetsPublicPath :
+      config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -37,8 +38,7 @@ module.exports = {
     }
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: "pre",
@@ -74,5 +74,13 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery', // Use jQuery with Angular 1
+      Tether: 'tether'
+    })
+  ]
 }
