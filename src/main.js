@@ -3,10 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import toastrSetup from './setup/toastrSetup'
 
 // bootstrap
 import 'bootstrap/scss/bootstrap.scss'
 import 'bootstrap/dist/js/bootstrap'
+
+// setup
+toastrSetup();
+
 
 /* eslint-disable no-new */
 new Vue({
