@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from 'components/Hello'
 import BasicControl from '../pages/demo/BasicControl'
+import PropsTester from '../pages/demo/PropsTester'
 
 Vue.use(Router)
 
@@ -16,6 +17,11 @@ export default new Router({
       path: '/BasicControl',
       name: 'BasicControl',
       component: BasicControl
+    },
+    {
+      path: '/PropsTester',
+      name: 'PropsTester',
+      component: PropsTester
     }
   ]
 })
