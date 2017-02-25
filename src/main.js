@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import toastrSetup from './setup/toastrSetup'
+import eventBus from './setup/eventBus'
 
 // bootstrap
 import 'bootstrap/scss/bootstrap.scss'
@@ -15,8 +16,14 @@ toastrSetup()
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,   // 表示 router: router (ES6屬性簡寫語法糖)
-  template: '<App/>',
-  components: { App }
+    el: '#app',
+    data() {
+        return {
+            // Bind our event bus to our $root Vue model.
+            bus: eventBus
+        }
+    },
+    router, // 表示 router: router (ES6屬性簡寫語法糖)
+    template: '<App/>',
+    components: { App }
 })

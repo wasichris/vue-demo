@@ -34,8 +34,7 @@
 
 
         <!--使用 ProductCard 子組件 -->
-        <product-card v-bind:made-from="madeFrom" :product="product" 
-            v-on:madeFromChanged="onMadeFromChanged"></product-card>
+        <product-card v-bind:made-from="madeFrom" :product="product" v-on:madeFromChanged="onMadeFromChanged"></product-card>
 
 
 
@@ -63,6 +62,12 @@ export default {
         onMadeFromChanged: function(updatedMadeFrom) {
             // 更新 madeFrom 為子組件修改的新數值
             this.madeFrom = updatedMadeFrom
+
+            // emit the event and pass with it an object of "event data".
+            this.$bus.$emit('specialEvent', {
+                msg: 'This message came from the specialEvent.',
+                title: 'Trigger by PropsTester'
+            });
         }
     },
     components: {
