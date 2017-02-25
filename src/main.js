@@ -10,13 +10,13 @@ import 'bootstrap/scss/bootstrap.scss'
 import 'bootstrap/dist/js/bootstrap'
 
 // setup
-toastrSetup();
+toastrSetup()
 
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
+  router,   // 表示 router: router (ES6屬性簡寫語法糖)
   template: '<App/>',
   components: { App }
 })
