@@ -11,6 +11,11 @@
 
 #app-side-bar-content {
     padding: 15px;
+    .side-bar li a.active {
+        color: black;
+        font-weight: bold;
+        text-decoration: underline;
+    }
 }
 
 #app-footer {

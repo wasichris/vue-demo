@@ -11,10 +11,13 @@
                 <ul>
            
                     <li>
-                        <router-link :to="{name: 'basicControl'}" exact>Basic Control</router-link>
+                        <router-link :to="{path: '/demo'}" exact>Basic Control</router-link>
                     </li>
                    <li>
                         <router-link :to="{name: 'propsTester'}" exact>Props Tester</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{name: 'tabTester'}" exact>Tab Tester</router-link>
                     </li>
 
                 </ul>

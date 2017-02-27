@@ -13,6 +13,7 @@ import Features from '../pages/Features'
 import Demo from '../pages/Demo'
 import BasicControl from '../pages/demo/BasicControl'
 import PropsTester from '../pages/demo/PropsTester'
+import TabTester from '../pages/demo/TabTester'
 
 
 // add global-level functionality to Vue
@@ -80,6 +81,37 @@ export default new Router({
                     path: 'propsTester',
                     name: 'propsTester',
                     component: PropsTester
+                },
+                {
+                    path: 'tabTester',
+                    component: TabTester,
+                    children: [{
+                            path: '',
+                            name: 'tabTester',
+                            component: BasicControl
+
+                        },
+                        {
+                            path: 'basicControl',
+                            name: 'tab-basicControl',
+                            component: BasicControl
+                        },
+                        {
+                            path: 'propsTester',
+                            name: 'tab-propsTester',
+                            component: PropsTester
+                        },
+                        {
+                            path: 'all',
+                            name: 'tab-all',
+                            // 在界面中擁有多個單獨命名的視圖
+                            components: {
+                                //default: xxxx
+                                BasicControl: BasicControl,
+                                PropsTester: PropsTester
+                            }
+                        }
+                    ]
                 }
             ]
         },
