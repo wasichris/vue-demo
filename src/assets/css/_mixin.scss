@@ -1,0 +1,7 @@
+// @mixin並不會實際產生code，只有你去呼叫他才會合併與匯出
+
+@mixin img-size($width, $height) {
+    width: $width;
+    height: $height;
+    margin-left: 40px;
+}

@@ -63,10 +63,10 @@ export default {
 
 <!--CSS/SCSS-->
 <style scoped lang="scss">
+
 .info-box {
     width: 400px;
     padding: 10px;
-    margin: 0 auto;
     text-align: left;
 }
 </style>

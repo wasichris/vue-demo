@@ -10,6 +10,12 @@ import eventBus from './setup/eventBus'
 import 'bootstrap/scss/bootstrap.scss'
 import 'bootstrap/dist/js/bootstrap'
 
+// font-awesome
+import 'font-awesome/scss/font-awesome.scss'
+
+// app style
+import './assets/css/app.scss'
+
 // setup
 toastrSetup()
 

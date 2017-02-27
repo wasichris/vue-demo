@@ -76,7 +76,6 @@ export default {
 <style scoped lang="scss">
 .product-card {
     width: 300px;
-    margin: 0 auto;
 }
 
 .modify-link {

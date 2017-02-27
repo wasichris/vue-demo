@@ -81,6 +81,5 @@ export default {
 <style scoped lang="scss">
 .props-tester {
     width: 500px;
-    margin: 0 auto;
 }
 </style>
