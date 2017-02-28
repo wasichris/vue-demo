@@ -3,7 +3,7 @@
     <div class="container-fluid">
 
         <!--header conponent-->
-        <my-header></my-header>
+        <app-header></app-header>
 
         <div class="row">
 
@@ -21,20 +21,20 @@
         </div>
 
         <!--footer conponent-->
-        <my-footer></my-footer>
+        <app-footer></app-footer>
 
     </div>
 
 </template>
 
 <script>
-import MyHeader from '../components/AppHeader'
+import AppHeader from '../components/AppHeader'
 import AppFooter from '../components/AppFooter'
 
 export default {
     name: 'features',
     components: {
-        MyHeader,
+        AppHeader,
         AppFooter
     },
     data() {

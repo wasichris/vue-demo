@@ -20,7 +20,7 @@ import TabTester from '../pages/demo/TabTester'
 // call VueRouter.install(Vue)
 Vue.use(Router)
 
-export default new Router({
+var router = new Router({
     // 使用 HTML 5 模式
     mode: 'history',
     base: __dirname,
@@ -32,6 +32,9 @@ export default new Router({
         {
             path: '/home',
             component: Home,
+            // 設定此路由(包括children路由)的meta值
+            // 可以在全域 router.beforeEach 中篩選識別所有流過的路由(判斷特殊邏輯)
+            meta: { requireAuth: true },
             children: [{
                     // 當 /home 匹配成功，預設是不會有任何子路由組件載入 Home 的 <router-view> 中
                     // 不會有任何資料被渲染在 Home 的 <router-view> 中
@@ -67,6 +70,7 @@ export default new Router({
         {
             path: '/demo',
             component: Demo,
+            meta: { requireAuth: true },
             children: [{
                     path: '',
                     name: 'demo',
@@ -118,7 +122,8 @@ export default new Router({
         {
             path: '/features',
             name: 'features',
-            component: Features
+            component: Features,
+            meta: { requireAuth: true },
         },
         {
             path: '/*', //其他页面，強制跳轉到Home頁面
@@ -129,3 +134,33 @@ export default new Router({
     // 所以可以透過此設定將 'router-link-active' 改為 'active'
     linkActiveClass: 'active'
 })
+
+
+
+// Navigation hook
+router.beforeEach(async(to, from, next) => {
+    if (to.matched.some(record => record.meta.requireAuth)) {
+
+        let isLogin = true
+
+        // 驗證是否已經登入 (看自己的實作機制)
+        // 可能是檢查 localStorage / vuex 狀態
+        console.log('check auth!!')
+
+        if (isLogin === false && from.path !== '/login') {
+            next({
+                path: '/login',
+                query: { redirect: to.fullPath }
+            })
+        } else {
+            next() //必須向下走
+        }
+
+    } else {
+        next() // 必須向下走
+    }
+})
+
+
+
+export default router;
