@@ -1,6 +1,11 @@
 import constantService from './constantService'
+import authServiceMock from './authService.mock'
+
 
 var baseUrl = `http://${constantService.hostName}`;
+
+// apply api mocking
+authServiceMock(baseUrl);
 
 export default {
 
