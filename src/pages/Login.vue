@@ -28,6 +28,8 @@
 
 <script>
 
+import authService from 'services/authService'
+import constantService from 'services/constantService'
 
 export default {
     /* html tag name, but if it's page that it doesn't mean any thing */
@@ -40,30 +42,30 @@ export default {
     methods: {
         login: function() {
 
-            // let vm = this;
-            // authService.login(vm.loginUser)
-            //     .done(data => {
+            let vm = this;
+            authService.login(vm.loginUser)
+                .done(data => {
 
-            //         // 1. save token in local storage
-            //         localStorage.setItem(utilityService.constants.localStorage.tokenKey, data.token);
+                    // 1. save token in local storage
+                    localStorage.setItem(constantService.localStorage.tokenKey, data.token);
 
-            //         // 2. direct to home or last visited page
-            //         // 要判斷是否存在redirect好讓重新登入後的用戶直接跳轉到該頁
-            //         // http://localhost:8080/login?redirect=%2Fwelcome%2Ffoo
-            //         var direct = this.$route.query.redirect;
-            //         if (direct) {
-            //             // to last unauthrized visiting page 
-            //             this.$router.push({
-            //                 path: direct
-            //             });
-            //         } else {
-            //             // to home page 
-            //             this.$router.push({
-            //                 path: '/home'
-            //             });
-            //         }
+                    // 2. direct to home or last visited page
+                    // 要判斷是否存在redirect好讓重新登入後的用戶直接跳轉到該頁
+                    // http://localhost:8080/login?redirect=%2Fwelcome%2Ffoo
+                    var direct = this.$route.query.redirect;
+                    if (direct) {
+                        // to last unauthrized visiting page 
+                        this.$router.push({
+                            path: direct
+                        });
+                    } else {
+                        // to home page 
+                        this.$router.push({
+                            path: '/home'
+                        });
+                    }
 
-            //     });
+                });
         }
     }
 }

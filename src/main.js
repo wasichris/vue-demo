@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import toastrSetup from './setup/toastrSetup'
+import jquerySetup from './setup/jquerySetup'
 import eventBus from './setup/eventBus'
 
 // bootstrap
@@ -18,7 +19,7 @@ import './assets/css/app.scss'
 
 // setup
 toastrSetup()
-
+jquerySetup()
 
 /* eslint-disable no-new */
 new Vue({
