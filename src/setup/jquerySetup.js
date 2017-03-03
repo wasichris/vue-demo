@@ -1,9 +1,16 @@
 import router from '../router'
 import constantService from 'services/constantService'
-
+import nprogress from 'nprogress'
 
 export default function() {
 
+    $(document).ajaxStart(function() {
+        nprogress.start();
+    });
+
+    $(document).ajaxStop(function() {
+        nprogress.done();
+    });
 
 
     $(document).ajaxSend(function(event, jqxhr, settings) {

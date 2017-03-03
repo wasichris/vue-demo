@@ -6,6 +6,7 @@ import router from './router'
 import toastrSetup from './setup/toastrSetup'
 import jquerySetup from './setup/jquerySetup'
 import eventBus from './setup/eventBus'
+import nprogressSetup from './setup/nprogressSetup'
 
 // bootstrap
 import 'bootstrap/scss/bootstrap.scss'
@@ -20,6 +21,7 @@ import './assets/css/app.scss'
 // setup
 toastrSetup()
 jquerySetup()
+nprogressSetup()
 
 /* eslint-disable no-new */
 new Vue({
