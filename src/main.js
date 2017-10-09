@@ -9,8 +9,7 @@ import eventBus from './setup/eventBus'
 import nprogressSetup from './setup/nprogressSetup'
 
 // bootstrap
-import 'bootstrap/scss/bootstrap.scss'
-import 'bootstrap/dist/js/bootstrap'
+import 'bootstrap'
 
 // font-awesome
 import 'font-awesome/scss/font-awesome.scss'

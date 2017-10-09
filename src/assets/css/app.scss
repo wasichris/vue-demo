@@ -1,7 +1,3 @@
-// @import 'bootstrap/stylesheets/bootstrap/_variables.scss';
-// @import 'bootstrap/stylesheets/bootstrap/_mixins.scss';
-
-
 // Common
 @import 'variable';     // 專門放變數
 @import 'mixin';        // mixin
@@ -10,4 +6,4 @@
 @import 'layout';       // 共同框架
 
 // Third-party
-//@import "vendor/colorpicker";
+@import "~bootstrap/scss/bootstrap";
