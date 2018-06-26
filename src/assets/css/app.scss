@@ -1,9 +1,12 @@
+// Third-party
+
+// This should be the first line or error might occur:
+// Argument `$color` of `darken($color, $amount)` must be a color
+@import "~bootstrap/scss/bootstrap";
+
 // Common
 @import 'variable';     // 專門放變數
 @import 'mixin';        // mixin
 @import 'reset';        // reset 網頁用的css
 @import 'extend';       // 合併CSS用，裡面都是使用%的符號來取代class的「.」符號。
 @import 'layout';       // 共同框架
-
-// Third-party
-@import "~bootstrap/scss/bootstrap";
